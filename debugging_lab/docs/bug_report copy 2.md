@@ -1,13 +1,13 @@
 # Lemon Clicker Bug Report
 
 **Name:**
-**Tickets solved:** <!-- e.g. 1, 2, 3, 5, 6 (at least five) -->
+**Tickets solved: 5** <!-- e.g. 1, 2, 3, 5, 6 (at least five) -->
 
 Copy the template below once for each ticket you solved. 
 
 ---
 
-## Ticket <number>: <ticket title>
+## Ticket 5: Leaderboard dates show "undefined"
 
 ### Actual cause
 
@@ -15,18 +15,21 @@ Copy the template below once for each ticket you solved.
      Explain why that code produced the behavior described in the ticket. -->
 
 **File / function:**
+file: ResultsScreenModel, ResultsScreenView function: updateLeaderboard(entries: LeaderboardEntry[]), type LeaderboardEntry
 
 **What was wrong:**
-
+The type names were not matching one was timestamp the other was time, with the server so it wasnt getting anything which is why it kept showing up as undefined.
 ### Fix
 
 <!-- What did you change, and why does that change fix the problem? -->
+Made sure that all the names matched for time since it was timestamp and time so I changed it all to time.
 
 ### How did you find it?
 
 #### Hypothesis testing
 
 **What hypothesis ultimately led you to identify the buggy code, and why?**
+I knew it had something to do with the ResultsScreenView since that is where it was being displayed I checked it to make sure it worked and it seemed right so I checked server to see if it was being loaded correctly and I noticed the discrepancies with the naming which is when I changed it and I checked where else it was being named and I went to the Model to change the type there.
 
 #### Backward tracing
 
@@ -43,5 +46,5 @@ Copy the template below once for each ticket you solved.
     reasoning for how you discovered where the bug was -->
 
 ### Confirming the fix
-
+Confirmed it by playing the game multiple times and refreshing it.
 <!-- How did you confirm the problem is gone? -->
