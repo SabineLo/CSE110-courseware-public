@@ -17,7 +17,7 @@ Copy the template below once for each ticket you solved.
 **File / function:**
 file: index.ts function: "app.get("/api/stats", (_req, res) =>) "
 **What was wrong:**
-The highest socre is always 0 even though there the input in json had the score being 19 so it should have been a new best score.
+The highest socre is always 0 even though there the input in json had the score being 19 so it should have been a new best score. The less than symbol was facing wrong way when it should have been newScore > best,
 ### Fix
 
 The issue was that since it best was 0 we had it so that if the newest entry for the game was < 0 then it would update best but no number was ever less than 0 and we were trying to find highest score so it should have been reversed if entry > best then best gets replaced.
