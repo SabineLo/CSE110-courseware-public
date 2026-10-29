@@ -1,13 +1,13 @@
 # Lemon Clicker Bug Report
 
 **Name:**
-**Tickets solved:** <!-- e.g. 1, 2, 3, 5, 6 (at least five) -->
+**Tickets solved: 4** <!-- e.g. 1, 2, 3, 5, 6 (at least five) -->
 
 Copy the template below once for each ticket you solved. 
 
 ---
 
-## Ticket <number>: <ticket title>
+## Ticket 4 : Stuck on the Game Over screen
 
 ### Actual cause
 
@@ -15,18 +15,21 @@ Copy the template below once for each ticket you solved.
      Explain why that code produced the behavior described in the ticket. -->
 
 **File / function:**
-
+file: GameScreenController function: endGame()
 **What was wrong:**
+It was calling this.StopTimer() incorrectly so the timer just kept going/ it kept calling the showResultsFromServer repeatedly.
 
 ### Fix
 
 <!-- What did you change, and why does that change fix the problem? -->
+Fixed it by calling this.StopTimer() correctly so I added the parenthesis.
 
 ### How did you find it?
 
 #### Hypothesis testing
 
 **What hypothesis ultimately led you to identify the buggy code, and why?**
+Knew that the showResultsFromServer kept being called caused I added a consoleLog so I knew somewhere it was being called I checked main and I checked what else was using the switch screens and it was endGame and the error was i want truly ending screen.
 
 #### Backward tracing
 
@@ -43,5 +46,5 @@ Copy the template below once for each ticket you solved.
     reasoning for how you discovered where the bug was -->
 
 ### Confirming the fix
-
+Confirmed it was gone because I played it again and it was no longer making the noises repeatedly or calling that function multiple times.
 <!-- How did you confirm the problem is gone? -->
